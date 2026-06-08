@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Youth Day - The Voyage</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EventSeries",
+      "name": "World Youth Day",
+      "description": "The history and major events of World Youth Day (WYD)."
+    }
+    </script>
+    <link rel="stylesheet" href="/style.css" />
+    
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  </head>
+  <body>
+    <!-- Fullscreen Map Background -->
+    <div id="map-container">
+      <div id="map"></div>
+    </div>
+
+    <!-- Right Side Navigation List -->
+    <nav id="place-nav">
+      <ul id="place-list">
+        <!-- List items injected via main.js -->
+      </ul>
+    </nav>
+
+    <!-- Centered Intro Screen -->
+    <section id="intro-screen">
+      <div class="intro-content">
+        <h2 class="intro-kicker">Saint John Paul II and</h2>
+        <h1 class="intro-title">World Youth Day</h1>
+        <p class="intro-subtitle">A Scroll Storytelling</p>
+        <div class="intro-description">
+          <p>Initiated by Pope John Paul II in 1985, World Youth Day (WYD) brings together millions of young people from around the globe to celebrate their faith. Scroll down to follow the journey across decades and continents.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scrollable Narrative Timeline Overlay -->
+    <main id="timeline-container">
+      <div id="dynamic-timeline">
+        <!-- 1984 Card is baked into HTML for SEO -->
+        <article class="timeline-card" data-index="0" id="card-1984">
+          <div class="card-meta">
+            <span class="card-year">1984</span>
+            <span class="card-location">Vatican City</span>
+          </div>
+          <h2>A Festival of Hope</h2>
+          <div class="card-details">
+            <p><strong>Date:</strong> 14–15 April 1984</p>
+            <p><strong>Theme:</strong> Holy Year of the Redemption</p>
+            <p><strong>Attendance:</strong> 300,000</p>
+          </div>
+          <p class="card-description">
+            Pope John Paul II entrusts the WYD Cross to the Youth. First WYD in Southern Europe. This marked the first gathering, laying the foundation for World Youth Day.
+          </p>
+        </article>
+      </div>
+
+      <!-- Symbols of WYD Card -->
+      <article class="timeline-card symbols-card" id="card-symbols">
+        <h2 style="font-size: 2.5rem; line-height: 1.1; margin-bottom: 0.5rem;">WYD Cross and Icon of Our Lady</h2>
+        <div class="card-description" style="font-size: 1rem; line-height: 1.4; font-family: var(--font-body); font-style: normal; font-weight: 500;">
+          <p style="margin-bottom: 0.5rem;">World Youth Day is accompanied by two symbols: the WYD Cross and the Icon of Our Lady. They go on pilgrimage, proclaiming the Gospel.</p>
+          <p style="margin-bottom: 0.5rem;"><em>"I entrust to you the sign of this Jubilee Year: the Cross of Christ! Carry it throughout the world..."</em><br>— Saint John Paul II (1984)</p>
+          <p>The WYD Cross has visited 90 countries as a symbol of hope. Since 2003, the icon of the Blessed Virgin accompanies the WYD Cross on its pilgrimage.</p>
+        </div>
+      </article>
+
+      <!-- Final Card: Jesus I Trust In You -->
+      <article class="timeline-card final-card" id="card-final">
+        <h2 class="jesus-title">Jesus, I Trust in You</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Jezu_ufam_Tobie.jpg" alt="Divine Mercy Jesus" class="jesus-painting" />
+      </article>
+
+      <!-- Credits Card -->
+      <article class="timeline-card credits-card" id="card-credits">
+        <h2>Credits</h2>
+        <div class="card-description" style="font-size: 1.1rem; font-family: var(--font-body); font-style: normal; font-weight: 500;">
+          <p>done by idiotajezusa.pl</p>
+        </div>
+      </article>
+
+      <!-- Footer Spacer so the final card can reach the center of the screen -->
+      <div class="timeline-footer-spacer"></div>
+    </main>
+    
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
