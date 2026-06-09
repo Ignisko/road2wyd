@@ -1,0 +1,8 @@
+{
+  "framework": null,
+  "buildCommand": "echo \"Ready\"",
+  "installCommand": "echo \"Ready\"",
+  "outputDirectory": ".",
+  "trailingSlash": true,
+  "cleanUrls": true
+}

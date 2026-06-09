@@ -1,23 +1,5 @@
-const wydData = [
-  { id: "1984", year: "1984", location: "Vatican City", date: "14–15 April 1984", coordinates: [41.9029, 12.4534], theme: "Holy Year of the Redemption: A Festival of Hope", attendance: "300,000", description: "Pope John Paul II entrusts the WYD Cross to the Youth. First WYD in Southern Europe." },
-  { id: "1985", year: "1985", location: "Rome, Italy", date: "30–31 March 1985", coordinates: [41.9028, 12.4964], theme: "International Youth Year", attendance: "300,001", description: "First WYD outside Vatican City." },
-  { id: "1987", year: "1987", location: "Buenos Aires, Argentina", date: "6–12 April 1987", coordinates: [-34.6037, -58.3816], theme: "We have recognized the love that God has for us...", attendance: "1,000,000", description: "First WYD outside Europe and first in South America." },
-  { id: "1989", year: "1989", location: "Santiago de Compostela, Spain", date: "19–20 August 1989", coordinates: [42.8782, -8.5448], theme: "I am the Way, the Truth and the Life", attendance: "600,000", description: "First WYD in Southwestern Europe. Held at Monte do Gozo." },
-  { id: "1991", year: "1991", location: "Częstochowa, Poland", date: "10–15 August 1991", coordinates: [50.8118, 19.1203], theme: "You have received a spirit of children", attendance: "1,600,000", description: "First WYD in Central Europe and in the Pope's native country. Held at Jasna Góra Monastery." },
-  { id: "1993", year: "1993", location: "Denver, United States", date: "10–15 August 1993", coordinates: [39.7392, -104.9903], theme: "I came that they might have life...", attendance: "700,000", description: "First WYD in North America. Held at Cherry Creek State Park." },
-  { id: "1995", year: "1995", location: "Manila, Philippines", date: "10–15 January 1995", coordinates: [14.5995, 120.9842], theme: "As the Father has sent me, so am I sending you", attendance: "5,000,000", description: "Largest Papal gathering at the time. First WYD held in Asia and the tropical zone." },
-  { id: "1997", year: "1997", location: "Paris, France", date: "19–24 August 1997", coordinates: [48.8566, 2.3522], theme: "Teacher, where do you live? Come and see", attendance: "1,200,000", description: "First WYD in Western Europe. Mass held at Longchamp Racecourse." },
-  { id: "2000", year: "2000", location: "Rome, Italy", date: "15–20 August 2000", coordinates: [41.8700, 12.6300], theme: "The Word became flesh and dwelt among us", attendance: "2,000,000", description: "Held on the occasion of the Great Jubilee at Tor Vergata." },
-  { id: "2002", year: "2002", location: "Toronto, Canada", date: "23–28 July 2002", coordinates: [43.7400, -79.4700], theme: "You are the salt of the earth... you are the light of the world", attendance: "800,000", description: "Last WYD attended by Pope John Paul II. Held at Downsview Park." },
-  { id: "2005", year: "2005", location: "Cologne, Germany", date: "16–21 August 2005", coordinates: [50.8800, 6.7400], theme: "We have come to worship Him", attendance: "1,000,000", description: "First WYD attended by Pope Benedict XVI, himself a native German." },
-  { id: "2008", year: "2008", location: "Sydney, Australia", date: "15–20 July 2008", coordinates: [-33.9060, 151.2290], theme: "You will receive power when the Holy Spirit comes upon you", attendance: "400,000", description: "First WYD in Oceania. Mass held at Randwick Racecourse." },
-  { id: "2011", year: "2011", location: "Madrid, Spain", date: "16–21 August 2011", coordinates: [40.3700, -3.7800], theme: "Rooted and built up in Jesus Christ, Firm in the Faith", attendance: "2,000,000", description: "Last WYD attended by Pope Benedict XVI." },
-  { id: "2013", year: "2013", location: "Rio de Janeiro, Brazil", date: "23–28 July 2013", coordinates: [-22.9711, -43.1822], theme: "Go and make disciples of all nations", attendance: "3,700,000", description: "First WYD attended by Pope Francis. Held at Copacabana Beach." },
-  { id: "2016", year: "2016", location: "Kraków, Poland", date: "26–31 July 2016", coordinates: [50.0200, 20.0400], theme: "Blessed are the merciful, for they will receive mercy", attendance: "3,000,000", description: "Held on the Occasion of the Extraordinary Jubilee of Mercy." },
-  { id: "2019", year: "2019", location: "Panama City, Panama", date: "22–27 January 2019", coordinates: [9.0300, -79.4400], theme: "I am the servant of the Lord.", attendance: "700,000", description: "First WYD to take place in Central America." },
-  { id: "2023", year: "2023", location: "Lisbon, Portugal", date: "1–6 August 2023", coordinates: [38.7800, -9.0900], theme: "Mary arose and went with haste.", attendance: "1,500,000", description: "Last WYD attended by Pope Francis. First WYD after COVID-19 pandemic." },
-  { id: "2027", year: "2027", location: "Seoul, South Korea", date: "3–8 August 2027", coordinates: [37.5665, 126.9780], theme: "Take courage! I have overcome the world.", attendance: "Upcoming", description: "First WYD held in East Asia and a Christian-minority country." }
-];
+let currentLang = 'en';
+let wydData = window.wydDataByLang[currentLang];
 
 document.addEventListener('DOMContentLoaded', () => {
   
@@ -25,26 +7,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const map = L.map('map', {
     zoomControl: false,
     scrollWheelZoom: false,
+    doubleClickZoom: false,
     dragging: false,
-    doubleClickZoom: false
+    touchZoom: false,
+    keyboard: false
   }).setView([41.9029, 12.4534], 4);
 
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
     subdomains: 'abcd',
-    maxZoom: 20
+    maxZoom: 20,
+    keepBuffer: 30
   }).addTo(map);
 
-  const markerIcon = L.divIcon({
-    className: 'custom-map-marker',
-    html: '<div class="marker-dot"></div>',
-    iconSize: [24, 24],
-    iconAnchor: [12, 12]
-  });
+  // Change default Leaflet attribution prefix to support WYD Seoul 2027
+  map.attributionControl.setPrefix('<a href="https://wydseoul.org" target="_blank" style="font-weight:bold; color:var(--accent-blue);">🇰🇷 Support WYD Seoul 2027</a>');
+
+
 
   const timelineContainer = document.getElementById('dynamic-timeline');
   const placeList = document.getElementById('place-list');
   const introScreen = document.getElementById('intro-screen');
+  const mapEl = document.getElementById('map');
   const latlngs = [];
 
   // 2. Populate Sidebar and Timeline Cards
@@ -53,17 +37,45 @@ document.addEventListener('DOMContentLoaded', () => {
   placeList.appendChild(homeLi);
 
   wydData.forEach((data, index) => {
-    latlngs.push(data.coordinates);
+    // Offset Rome slightly so it doesn't overlap Vatican City at zoom level 4
+    if (data.id === "1985" || data.id === "2000") {
+      data.coordinates = [41.9, 13.5]; 
+    }
     
-    L.marker(data.coordinates, { icon: markerIcon }).addTo(map);
+    latlngs.push(data.coordinates);
+
+    const flagMap = {
+      "1984": "🇻🇦", "1985": "🇮🇹", "1987": "🇦🇷", "1989": "🇪🇸",
+      "1991": "🇵🇱", "1993": "🇺🇸", "1995": "🇵🇭", "1997": "🇫🇷",
+      "2000": "🇮🇹", "2002": "🇨🇦", "2005": "🇩🇪", "2008": "🇦🇺",
+      "2011": "🇪🇸", "2013": "🇧🇷", "2016": "🇵🇱", "2019": "🇵🇦",
+      "2023": "🇵🇹", "2027": "🇰🇷"
+    };
 
     // Strip country to save space, and explicitly shorten long names
     let navLabel = data.location.split(',')[0];
-    if (navLabel === "Santiago de Compostela") navLabel = "Santiago d.C.";
+    if (navLabel === "Santiago de Compostela") navLabel = "Santiago";
     if (navLabel === "Vatican City") navLabel = "Vatican";
+    
+    let displayLabel = `${flagMap[data.id] || ""} ${navLabel}`.trim();
+
+    let labelClass = "city-label";
+    if (navLabel === "Vatican") labelClass += " label-left";
+
+    const specificIcon = L.divIcon({
+      className: `custom-map-marker marker-${data.id}`,
+      html: `
+        <div class="marker-dot"></div>
+        <div class="${labelClass}">${displayLabel}</div>
+      `,
+      iconSize: [24, 24],
+      iconAnchor: [12, 12]
+    });
+
+    const marker = L.marker(data.coordinates, { icon: specificIcon }).addTo(map);
 
     const li = document.createElement('li');
-    li.innerHTML = `<a href="#card-${data.id}" data-id="${data.id}">${navLabel}</a>`;
+    li.innerHTML = `<a href="#card-${data.id}" data-id="${data.id}">${displayLabel}</a>`;
     placeList.appendChild(li);
 
     // Skip index 0 because 1984 is baked in the HTML for SEO
@@ -73,18 +85,20 @@ document.addEventListener('DOMContentLoaded', () => {
       article.id = `card-${data.id}`;
       article.setAttribute('data-index', index);
       
-      const titleHTML = data.year === "2027" ? `<h2 class="seoul-title">WYD SEOUL 2027</h2>` : `<h2>${data.location}</h2>`;
+      const titleHTML = data.year === "2027" ? `<h2 class="seoul-title">Seoul, South Korea</h2>` : `<h2>${data.location}</h2>`;
+
+      let attendanceText = data.attendance;
+      let attendanceHTML = "";
+      if (attendanceText !== "Upcoming") {
+        attendanceHTML = `<p>${attendanceText} pilgrims</p>`;
+      }
 
       article.innerHTML = `
-        <div class="card-meta">
-          <span class="card-year">${data.year}</span>
-          <span class="card-location">${data.location}</span>
-        </div>
         ${titleHTML}
         <div class="card-details">
-          <p><strong>Date:</strong> ${data.date}</p>
-          <p><strong>Theme:</strong> ${data.theme}</p>
-          <p><strong>Attendance:</strong> ${data.attendance}</p>
+          <p>${data.date}</p>
+          <p>${data.theme}</p>
+          ${attendanceHTML}
         </div>
         <p class="card-description">${data.description}</p>
       `;
@@ -92,23 +106,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3. Draw Path Line connecting the cities
-  L.polyline(latlngs, {
-    color: '#1b43aa', // Seoul blue path
-    weight: 2,
-    opacity: 0.5,
-    dashArray: '5, 10'
-  }).addTo(map);
+  // Add Symbols to Nav List
+  const symbolsLi = document.createElement('li');
+  symbolsLi.innerHTML = `<a href="#card-symbols" data-id="symbols">Symbols</a>`;
+  placeList.appendChild(symbolsLi);
+
+  // Add Patrons to Nav List
+  const patronsLi = document.createElement('li');
+  patronsLi.innerHTML = `<a href="#card-patrons" data-id="patrons">Patron saints</a>`;
+  placeList.appendChild(patronsLi);
+
+  // Handle Navbar Clicks smoothly
+  placeList.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (link) {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      }
+    }
+  });
 
   // 4. Scroll Logic with IntersectionObserver
   const cards = document.querySelectorAll('.timeline-card');
   const navLinks = document.querySelectorAll('#place-list a');
 
   let currentActiveId = null;
+  let currentTargetCoords = null;
 
   const observerOptions = {
     root: null,
-    rootMargin: '-55% 0px -25% 0px',
+    rootMargin: '-60% 0px -5% 0px',
     threshold: 0
   };
 
@@ -122,17 +152,24 @@ document.addEventListener('DOMContentLoaded', () => {
         if (introScreen && entry.target.id !== 'intro-screen') {
           introScreen.style.opacity = '0';
           introScreen.style.transition = 'opacity 0.6s ease';
+          if (mapEl) mapEl.classList.remove('hide-markers');
         }
 
         const index = entry.target.getAttribute('data-index');
         const isCredits = entry.target.id === 'card-credits';
-        const isFinal = entry.target.id === 'card-final';
         
         if (index !== null) {
           const data = wydData[index];
           
           if (currentActiveId !== data.id) {
             currentActiveId = data.id;
+
+            document.querySelectorAll('.custom-map-marker').forEach(el => {
+              el.classList.remove('active-pin');
+              if (el.classList.contains(`marker-${data.id}`)) {
+                el.classList.add('active-pin');
+              }
+            });
 
             navLinks.forEach(link => {
               if (link.getAttribute('data-id') === data.id) {
@@ -143,23 +180,47 @@ document.addEventListener('DOMContentLoaded', () => {
               }
             });
 
-            map.flyTo(data.coordinates, 9, {
-              animate: true,
-              duration: 1.2
-            });
+            if (!currentTargetCoords || currentTargetCoords[0] !== data.coordinates[0] || currentTargetCoords[1] !== data.coordinates[1]) {
+              currentTargetCoords = data.coordinates;
+              map.flyTo(data.coordinates, 8, {
+                animate: true,
+                duration: 5.0
+              });
+            }
           }
-        } else if (isCredits || isFinal) {
-           currentActiveId = isCredits ? 'credits' : 'final';
-           navLinks.forEach(link => link.classList.remove('active'));
+        } else if (isCredits) {
+           currentActiveId = 'credits';
            
-           // Fly to Warsaw
-           map.flyTo([52.2297, 21.0122], 9, {
-             animate: true,
-             duration: 1.5
-           });
+           if (!currentTargetCoords || currentTargetCoords[0] !== 52.2297 || currentTargetCoords[1] !== 21.0122) {
+             currentTargetCoords = [52.2297, 21.0122];
+             navLinks.forEach(link => link.classList.remove('active'));
+             
+             // Fly to Warsaw
+             map.flyTo([52.2297, 21.0122], 8, {
+               animate: true,
+               duration: 5.0
+             });
+           }
         } else if (entry.target.id === 'card-symbols') {
            currentActiveId = 'symbols';
-           navLinks.forEach(link => link.classList.remove('active'));
+           navLinks.forEach(link => {
+             if (link.getAttribute('data-id') === 'symbols') {
+               link.classList.add('active');
+               link.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+             } else {
+               link.classList.remove('active');
+             }
+           });
+        } else if (entry.target.id === 'card-patrons') {
+           currentActiveId = 'patrons';
+           navLinks.forEach(link => {
+             if (link.getAttribute('data-id') === 'patrons') {
+               link.classList.add('active');
+               link.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+             } else {
+               link.classList.remove('active');
+             }
+           });
         }
       }
     });
@@ -173,7 +234,9 @@ document.addEventListener('DOMContentLoaded', () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
            introScreen.style.opacity = '1';
+           if (mapEl) mapEl.classList.add('hide-markers');
            cards.forEach(c => c.classList.remove('active')); // clear cards when at top
+           document.querySelectorAll('.custom-map-marker').forEach(el => el.classList.remove('active-pin'));
            navLinks.forEach(link => {
              if (link.getAttribute('data-id') === 'home') {
                link.classList.add('active');
@@ -183,15 +246,160 @@ document.addEventListener('DOMContentLoaded', () => {
              }
            });
            
+           currentTargetCoords = null; // Reset coords so the next scroll down triggers a flight
+           currentActiveId = 'home'; // Reset active id so scrolling down triggers map updates
+           
            // Fly back to original view
            map.flyTo([41.9029, 12.4534], 4, {
              animate: true,
-             duration: 1.2
+             duration: 5.0
            });
         }
       });
     }, { rootMargin: '-10% 0px -10% 0px' });
     introObserver.observe(introScreen);
   }
+  // 6. Language Application
+  function applyLanguage(lang) {
+    currentLang = lang;
+    wydData = window.wydDataByLang[lang];
+    const t = window.translations[lang];
 
+    // Static text
+    document.querySelector('.intro-kicker').innerHTML = t.introKicker;
+    document.querySelector('.intro-title').innerHTML = t.introTitle;
+    document.querySelector('.intro-subtitle').innerHTML = t.introSubtitle;
+    document.querySelector('.intro-description p').innerHTML = t.introDesc;
+
+    document.querySelector('#card-1984 h2').innerHTML = t.card1984Title;
+    const card1984Details = document.querySelectorAll('#card-1984 .card-details p');
+    if(card1984Details.length === 3) {
+      card1984Details[0].innerHTML = t.card1984Date;
+      card1984Details[1].innerHTML = t.card1984Theme;
+      card1984Details[2].innerHTML = t.card1984Attendance;
+    }
+    document.querySelector('#card-1984 .card-description').innerHTML = t.card1984Desc;
+
+    document.querySelector('#card-symbols h2').innerHTML = t.symbolsTitle;
+    const symbolsPs = document.querySelectorAll('#card-symbols .card-description p');
+    if(symbolsPs.length === 3) {
+      symbolsPs[0].innerHTML = t.symbolsP1;
+      symbolsPs[1].innerHTML = t.symbolsP2;
+      symbolsPs[2].innerHTML = t.symbolsP3;
+    }
+
+    document.querySelector('#card-patrons h2').innerHTML = t.patronsTitle;
+    const patronsDesc = document.querySelector('#card-patrons .card-description');
+    if(patronsDesc) {
+       patronsDesc.innerHTML = `
+          <p style="margin-bottom: 0.5rem;">${t.patronsDesc}</p>
+          <ul style="list-style: disc; margin-left: 1.5rem; margin-bottom: 1rem;">
+            <li>${t.patron1}</li>
+            <li>${t.patron2}</li>
+            <li>${t.patron3}</li>
+            <li>${t.patron4}</li>
+            <li>${t.patron5}</li>
+          </ul>
+          <p>${t.patronsQuote}</p>
+       `;
+    }
+
+    document.querySelector('#card-credits .jesus-title').innerHTML = t.creditsTitle;
+    document.querySelector('#card-credits .card-description').innerHTML = `
+          <p>${t.creditsBio}</p>
+          <p style="margin-top: 1rem;">${t.creditsTech}</p>
+          <p style="margin-top: 1rem;">${t.creditsThanks}</p>
+    `;
+
+    // Dynamic cards & Nav links
+    wydData.forEach((data, index) => {
+      if (index > 0) {
+        const article = document.getElementById(`card-${data.id}`);
+        if(article) {
+          const titleHTML = data.year === "2027" ? `<h2 class="seoul-title">Seoul, South Korea</h2>` : `<h2>${data.location}</h2>`;
+          let attendanceText = data.attendance;
+          let attendanceHTML = "";
+          if (attendanceText !== t.upcomingLabel && attendanceText !== "Upcoming") {
+             attendanceHTML = `<p>${attendanceText}${t.pilgrimsLabel}</p>`;
+          }
+          article.innerHTML = `
+            ${titleHTML}
+            <div class="card-details">
+              <p>${data.date}</p>
+              <p>${data.theme}</p>
+              ${attendanceHTML}
+            </div>
+            <p class="card-description">${data.description}</p>
+          `;
+        }
+      }
+
+      const navLink = document.querySelector(`#place-list a[data-id="${data.id}"]`);
+      if (navLink) {
+        const flagMap = {
+          "1984": "🇻🇦", "1985": "🇮🇹", "1987": "🇦🇷", "1989": "🇪🇸",
+          "1991": "🇵🇱", "1993": "🇺🇸", "1995": "🇵🇭", "1997": "🇫🇷",
+          "2000": "🇮🇹", "2002": "🇨🇦", "2005": "🇩🇪", "2008": "🇦🇺",
+          "2011": "🇪🇸", "2013": "🇧🇷", "2016": "🇵🇱", "2019": "🇵🇦",
+          "2023": "🇵🇹", "2027": "🇰🇷"
+        };
+        let navLabel = data.location.split(',')[0];
+        if (navLabel === "Santiago de Compostela") navLabel = "Santiago";
+        if (navLabel === "Vatican City" || navLabel === "Watykan" || navLabel === "바티칸 시국" || navLabel === "Ciudad del Vaticano" || navLabel === "Città del Vaticano" || navLabel === "Cidade do Vaticano") navLabel = "Vatican";
+        
+        let displayLabel = `${flagMap[data.id] || ""} ${navLabel}`.trim();
+        navLink.innerHTML = displayLabel;
+        
+        const markerEl = document.querySelector(`[class~="marker-${data.id}"]`);
+        if (markerEl) {
+          const cityLabel = markerEl.querySelector('.city-label');
+          if (cityLabel) cityLabel.innerHTML = displayLabel;
+        }
+      }
+    });
+
+    const navHome = document.querySelector('#place-list a[data-id="home"]');
+    if(navHome) navHome.innerHTML = t.navHome;
+    const navSym = document.querySelector('#place-list a[data-id="symbols"]');
+    if(navSym) navSym.innerHTML = t.navSymbols;
+    const navPat = document.querySelector('#place-list a[data-id="patrons"]');
+    if(navPat) navPat.innerHTML = t.navPatrons;
+  }
+
+  const customLang = document.getElementById('custom-lang');
+  const langCurrent = document.getElementById('lang-current');
+  const langDropdown = document.getElementById('lang-dropdown');
+  
+  if (customLang && langCurrent && langDropdown) {
+    langCurrent.addEventListener('click', (e) => {
+      e.stopPropagation();
+      customLang.classList.toggle('open');
+    });
+
+    langDropdown.querySelectorAll('li').forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const selectedLang = e.target.getAttribute('data-value');
+        const selectedText = e.target.innerText;
+        
+        // Update UI
+        langCurrent.innerHTML = `${selectedText} <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
+        langDropdown.querySelectorAll('li').forEach(li => li.classList.remove('active'));
+        e.target.classList.add('active');
+        customLang.classList.remove('open');
+        
+        applyLanguage(selectedLang);
+      });
+    });
+
+    // Close on click outside
+    document.addEventListener('click', (e) => {
+      if (!customLang.contains(e.target)) {
+        customLang.classList.remove('open');
+      }
+    });
+  }
+
+  // Initial application of default lang is English since it loads as English, but calling it enforces consistency
+  applyLanguage('en');
 });
