@@ -53,6 +53,8 @@ h1, h2, h3, h4, h5, h6 {
   will-change: transform;
   backface-visibility: hidden;
   transform: translateZ(0);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 .leaflet-marker-pane {
   transition: opacity 0.8s ease;
@@ -66,13 +68,17 @@ h1, h2, h3, h4, h5, h6 {
   width: 18px;
   height: 18px;
   background-color: var(--accent-gold);
-  border: 3px solid #fff;
+  border: 3px solid transparent;
   border-radius: 50% !important;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
   transition: transform 0.6s ease, background-color 0.8s ease, box-shadow 0.8s ease;
   will-change: transform;
   backface-visibility: hidden;
   transform: translateZ(0);
+}
+
+.custom-map-marker.active-pin {
+  opacity: 1;
 }
 
 .custom-map-marker.active-pin .marker-dot {
@@ -83,6 +89,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .city-label {
+  display: none !important;
   position: absolute;
   left: 20px;
   background: transparent;
@@ -120,7 +127,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 0.3rem; /* Extremely narrow padding */
+  padding: 0 1.2rem; /* Wider padding */
   box-shadow: -2px 0 10px rgba(0,0,0,0.05);
   border-left: 1px solid rgba(26, 30, 41, 0.05);
 }
@@ -137,7 +144,7 @@ h1, h2, h3, h4, h5, h6 {
 #place-list a {
   text-decoration: none;
   color: var(--text-blue);
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -278,8 +285,13 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--accent-blue);
   font-weight: 600;
   font-family: 'Space Grotesk', sans-serif;
-  border-left: 4px solid var(--accent-yellow);
+  border-left: 4px solid var(--accent-gold); /* Changed to red */
   padding-left: 1rem;
+}
+
+.card-details p:first-child {
+  color: var(--accent-gold); /* Date in red */
+  font-weight: 700;
 }
 
 .card-description {
@@ -363,7 +375,8 @@ h1, h2, h3, h4, h5, h6 {
   list-style: none;
   padding: 8px;
   margin: 0;
-  min-width: 140px;
+  min-width: 180px;
+  white-space: nowrap;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px) scale(0.95);
@@ -426,5 +439,12 @@ h1, h2, h3, h4, h5, h6 {
   }
   .timeline-card h2 {
     font-size: 2.5rem;
+  }
+}
+
+/* Move Leaflet attribution left to avoid overlapping with right navbar on desktop */
+@media (min-width: 1025px) {
+  .leaflet-bottom.leaflet-right {
+    margin-right: 110px;
   }
 }

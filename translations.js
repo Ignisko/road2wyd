@@ -25,11 +25,12 @@ window.translations = {
     patron5: "<strong>St. Carlo Acutis</strong> (associated with evangelization in the digital age)",
     patronsQuote: 'Cardinal Kevin Farrell noted: <em>"May the witness of these Patron Saints inspire young people around the world... to see that holiness is not a distant ideal."</em>',
     creditsTitle: "Jesus, I Trust in You",
-    creditsBio: "hi, i'm Ignacy, a Catholic from Cracow based in Warsaw, Poland, focused on developing my faith and sharing love to Jesus. check out my other projects at <a href='https://www.idiotajezusa.pl' target='_blank' style='color: var(--accent-blue);'>idiotajezusa.pl</a>.",
+    creditsBio: "hi, i'm Ignacy, a Catholic from Cracow based in Warsaw, Poland, focused on developing my faith and sharing love to Jesus. check out my other projects: <a href='https://www.idiotajezusa.pl' target='_blank' style='color: var(--accent-blue);'>idiotajezusa.pl</a>, <a href='https://www.stellamaris.help/' target='_blank' style='color: var(--accent-blue);'>Stella Maris</a>, <a href='https://www.eucharisticmiracles.info/' target='_blank' style='color: var(--accent-blue);'>Eucharistic Miracles info</a>.",
     creditsTech: "this project was developed using Vite, Leaflet.js, CARTO, and OpenStreetMap.",
     creditsThanks: "<em>obrigado to Carlos Toledo for the inspiring work.</em>",
     pilgrimsLabel: " pilgrims",
-    upcomingLabel: "Upcoming"
+    upcomingLabel: "Upcoming",
+    supportLinkText: "Support Polish volunteers in Seoul"
   },
   pl: {
     navHome: "Start",
@@ -57,11 +58,12 @@ window.translations = {
     patron5: "<strong>Bł. Carlo Acutis</strong> (związany z ewangelizacją w epoce cyfrowej)",
     patronsQuote: 'Kardynał Kevin Farrell zaznaczył: <em>"Niech świadectwo tych Świętych Patronów inspiruje młodych ludzi na całym świecie... do zobaczenia, że świętość nie jest odległym ideałem."</em>',
     creditsTitle: "Jezu, ufam Tobie",
-    creditsBio: "cześć, jestem Ignacy, katolik z Krakowa mieszkający w Warszawie, skupiony na rozwoju mojej wiary i dzieleniu się miłością do Jezusa. sprawdź moje inne projekty na <a href='https://www.idiotajezusa.pl' target='_blank' style='color: var(--accent-blue);'>idiotajezusa.pl</a>.",
+    creditsBio: "cześć, jestem Ignacy, katolik z Krakowa mieszkający w Warszawie, skupiony na rozwoju mojej wiary i dzieleniu się miłością do Jezusa. sprawdź moje inne projekty: <a href='https://www.idiotajezusa.pl' target='_blank' style='color: var(--accent-blue);'>idiotajezusa.pl</a>, <a href='https://www.stellamaris.help/' target='_blank' style='color: var(--accent-blue);'>Stella Maris</a>, <a href='https://www.eucharisticmiracles.info/' target='_blank' style='color: var(--accent-blue);'>Eucharistic Miracles info</a>.",
     creditsTech: "ten projekt został stworzony przy użyciu Vite, Leaflet.js, CARTO i OpenStreetMap.",
     creditsThanks: "<em>obrigado dla Carlosa Toledo za inspirującą pracę.</em>",
     pilgrimsLabel: " pielgrzymów",
-    upcomingLabel: "Nadchodzące"
+    upcomingLabel: "Nadchodzące",
+    supportLinkText: "Wesprzyj polskich wolontariuszy w Seulu"
   },
   ko: {
     navHome: "홈",
@@ -89,11 +91,12 @@ window.translations = {
     patron5: "<strong>복자 카를로 아쿠티스</strong> (디지털 시대의 복음화와 연관됨)",
     patronsQuote: '케빈 패럴 추기경: <em>"이 수호 성인들의 증언이 전 세계 젊은이들에게 영감을 주어... 거룩함이 먼 이상이 아님을 깨닫게 하기를 바랍니다."</em>',
     creditsTitle: "예수님, 저는 당신께 의탁합니다",
-    creditsBio: "안녕하세요, 저는 크라쿠프 출신으로 폴란드 바르샤바에 거주하는 가톨릭 신자 Ignacy입니다. 신앙을 키우고 예수님에 대한 사랑을 나누는 데 집중하고 있습니다. 제 다른 프로젝트는 <a href='https://www.idiotajezusa.pl' target='_blank' style='color: var(--accent-blue);'>idiotajezusa.pl</a>에서 확인하세요.",
+    creditsBio: "안녕하세요, 저는 크라쿠프 출신으로 폴란드 바르샤바에 거주하는 가톨릭 신자 Ignacy입니다. 신앙을 키우고 예수님에 대한 사랑을 나누는 데 집중하고 있습니다. 제 다른 프로젝트는 <a href='https://www.idiotajezusa.pl' target='_blank' style='color: var(--accent-blue);'>idiotajezusa.pl</a>, <a href='https://www.stellamaris.help/' target='_blank' style='color: var(--accent-blue);'>Stella Maris</a>, <a href='https://www.eucharisticmiracles.info/' target='_blank' style='color: var(--accent-blue);'>Eucharistic Miracles info</a>에서 확인하세요.",
     creditsTech: "이 프로젝트는 Vite, Leaflet.js, CARTO 및 OpenStreetMap을 사용하여 개발되었습니다.",
     creditsThanks: "<em>영감을 준 Carlos Toledo에게 obrigado.</em>",
     pilgrimsLabel: "명 순례자",
-    upcomingLabel: "예정됨"
+    upcomingLabel: "예정됨",
+    supportLinkText: "WYD 후원하기"
   },
   es: {
     navHome: "Inicio",
@@ -121,11 +124,12 @@ window.translations = {
     patron5: "<strong>Beato Carlo Acutis</strong> (asociado con la evangelización en la era digital)",
     patronsQuote: 'El cardenal Kevin Farrell señaló: <em>"Que el testimonio de estos Santos Patronos inspire a los jóvenes de todo el mundo... a ver que la santidad no es un ideal lejano."</em>',
     creditsTitle: "Jesús, en Ti Confío",
-    creditsBio: "hola, soy Ignacy, un católico de Cracovia con sede en Varsovia, Polonia, centrado en desarrollar mi fe y compartir el amor a Jesús. echa un vistazo a mis otros proyectos en <a href='https://www.idiotajezusa.pl' target='_blank' style='color: var(--accent-blue);'>idiotajezusa.pl</a>.",
+    creditsBio: "hola, soy Ignacy, un católico de Cracovia con sede en Varsovia, Polonia, centrado en desarrollar mi fe y compartir el amor a Jesús. echa un vistazo a mis otros proyectos: <a href='https://www.idiotajezusa.pl' target='_blank' style='color: var(--accent-blue);'>idiotajezusa.pl</a>, <a href='https://www.stellamaris.help/' target='_blank' style='color: var(--accent-blue);'>Stella Maris</a>, <a href='https://www.eucharisticmiracles.info/' target='_blank' style='color: var(--accent-blue);'>Eucharistic Miracles info</a>.",
     creditsTech: "este proyecto fue desarrollado utilizando Vite, Leaflet.js, CARTO y OpenStreetMap.",
     creditsThanks: "<em>obrigado a Carlos Toledo por su trabajo inspirador.</em>",
     pilgrimsLabel: " peregrinos",
-    upcomingLabel: "Próximamente"
+    upcomingLabel: "Próximamente",
+    supportLinkText: "Apoya a la JMJ"
   },
   it: {
     navHome: "Home",
@@ -153,11 +157,12 @@ window.translations = {
     patron5: "<strong>Beato Carlo Acutis</strong> (associato all'evangelizzazione nell'era digitale)",
     patronsQuote: 'Il cardinale Kevin Farrell: <em>"Possa la testimonianza di questi Santi Patroni ispirare i giovani di tutto il mondo..."</em>',
     creditsTitle: "Gesù, confido in Te",
-    creditsBio: "ciao, sono Ignacy, un cattolico di Cracovia con sede a Varsavia, Polonia, concentrato sullo sviluppo della mia fede e sulla condivisione dell'amore per Gesù. dai un'occhiata agli altri miei progetti su <a href='https://www.idiotajezusa.pl' target='_blank' style='color: var(--accent-blue);'>idiotajezusa.pl</a>.",
+    creditsBio: "ciao, sono Ignacy, un cattolico di Cracovia con sede a Varsavia, Polonia, concentrato sullo sviluppo della mia fede e sulla condivisione dell'amore per Gesù. dai un'occhiata agli altri miei progetti: <a href='https://www.idiotajezusa.pl' target='_blank' style='color: var(--accent-blue);'>idiotajezusa.pl</a>, <a href='https://www.stellamaris.help/' target='_blank' style='color: var(--accent-blue);'>Stella Maris</a>, <a href='https://www.eucharisticmiracles.info/' target='_blank' style='color: var(--accent-blue);'>Eucharistic Miracles info</a>.",
     creditsTech: "questo progetto è stato sviluppato utilizzando Vite, Leaflet.js, CARTO e OpenStreetMap.",
     creditsThanks: "<em>obrigado a Carlos Toledo per il lavoro stimolante.</em>",
     pilgrimsLabel: " pellegrini",
-    upcomingLabel: "Prossimamente"
+    upcomingLabel: "Prossimamente",
+    supportLinkText: "Sostieni la GMG"
   },
   pt: {
     navHome: "Início",
@@ -185,11 +190,12 @@ window.translations = {
     patron5: "<strong>Beato Carlo Acutis</strong> (associado à evangelização na era digital)",
     patronsQuote: 'O Cardeal Kevin Farrell observou: <em>"Que o testemunho destes Santos Patronos inspire os jovens..."</em>',
     creditsTitle: "Jesus, eu confio em Vós",
-    creditsBio: "olá, sou Ignacy, um católico de Cracóvia residente em Varsóvia, Polônia, focado em desenvolver minha fé e compartilhar o amor a Jesus. confira meus outros projetos em <a href='https://www.idiotajezusa.pl' target='_blank' style='color: var(--accent-blue);'>idiotajezusa.pl</a>.",
+    creditsBio: "olá, sou Ignacy, um católico de Cracóvia residente em Varsóvia, Polônia, focado em desenvolver minha fé e compartilhar o amor a Jesus. confira meus outros projetos: <a href='https://www.idiotajezusa.pl' target='_blank' style='color: var(--accent-blue);'>idiotajezusa.pl</a>, <a href='https://www.stellamaris.help/' target='_blank' style='color: var(--accent-blue);'>Stella Maris</a>, <a href='https://www.eucharisticmiracles.info/' target='_blank' style='color: var(--accent-blue);'>Eucharistic Miracles info</a>.",
     creditsTech: "este projeto foi desenvolvido usando Vite, Leaflet.js, CARTO e OpenStreetMap.",
     creditsThanks: "<em>obrigado a Carlos Toledo pelo trabalho inspirador.</em>",
     pilgrimsLabel: " peregrinos",
-    upcomingLabel: "Em breve"
+    upcomingLabel: "Em breve",
+    supportLinkText: "Apoie a JMJ"
   }
 };
 
@@ -256,10 +262,20 @@ window.wydDataByLang = {
   ],
   es: window.wydDataByLang?.en || [],
   it: window.wydDataByLang?.en || [],
-  pt: window.wydDataByLang?.en || []
+  pt: window.wydDataByLang?.en || [],
+  fr: window.wydDataByLang?.en || [],
+  ar: window.wydDataByLang?.en || [],
+  ph: window.wydDataByLang?.en || [],
+  vi: window.wydDataByLang?.en || [],
+  tr: window.wydDataByLang?.en || []
 };
 
-// Fallback shallow copy for Romance languages to save JS size for this exercise.
+// Fallback shallow copy for languages to save JS size for this exercise.
 window.wydDataByLang.es = JSON.parse(JSON.stringify(window.wydDataByLang.en));
 window.wydDataByLang.it = JSON.parse(JSON.stringify(window.wydDataByLang.en));
 window.wydDataByLang.pt = JSON.parse(JSON.stringify(window.wydDataByLang.en));
+window.wydDataByLang.fr = JSON.parse(JSON.stringify(window.wydDataByLang.en));
+window.wydDataByLang.ar = JSON.parse(JSON.stringify(window.wydDataByLang.en));
+window.wydDataByLang.ph = JSON.parse(JSON.stringify(window.wydDataByLang.en));
+window.wydDataByLang.vi = JSON.parse(JSON.stringify(window.wydDataByLang.en));
+window.wydDataByLang.tr = JSON.parse(JSON.stringify(window.wydDataByLang.en));

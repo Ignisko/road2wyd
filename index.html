@@ -19,10 +19,11 @@
       "description": "The history and major events of World Youth Day (WYD)."
     }
     </script>
-    <link rel="stylesheet" href="./style.css" />
     
     <!-- Leaflet CSS & JS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css" />
+    <link rel="stylesheet" href="./style.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   </head>
   <body>
@@ -33,16 +34,21 @@
     <!-- Language Switcher -->
     <div class="custom-lang-selector" id="custom-lang">
       <div class="lang-current" id="lang-current">
-        🇬🇧 English
+        <span class="fi fi-gb" style="border-radius: 2px;"></span>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
       </div>
       <ul class="lang-dropdown" id="lang-dropdown">
-        <li data-value="en" class="active">🇬🇧 English</li>
-        <li data-value="pl">🇵🇱 Polski</li>
-        <li data-value="ko">🇰🇷 한국어</li>
-        <li data-value="es">🇪🇸 Español</li>
-        <li data-value="it">🇮🇹 Italiano</li>
-        <li data-value="pt">🇵🇹 Português</li>
+        <li data-value="en" class="active"><span class="fi fi-gb" style="border-radius: 2px; margin-right: 8px;"></span> English</li>
+        <li data-value="pl"><span class="fi fi-pl" style="border-radius: 2px; margin-right: 8px;"></span> Polski</li>
+        <li data-value="es"><span class="fi fi-es" style="border-radius: 2px; margin-right: 8px;"></span> Español</li>
+        <li data-value="pt"><span class="fi fi-pt" style="border-radius: 2px; margin-right: 8px;"></span> Português</li>
+        <li data-value="fr"><span class="fi fi-fr" style="border-radius: 2px; margin-right: 8px;"></span> Français</li>
+        <li data-value="it"><span class="fi fi-it" style="border-radius: 2px; margin-right: 8px;"></span> Italiano</li>
+        <li data-value="ar"><span class="fi fi-sa" style="border-radius: 2px; margin-right: 8px;"></span> العربية</li>
+        <li data-value="ph"><span class="fi fi-ph" style="border-radius: 2px; margin-right: 8px;"></span> Filipino</li>
+        <li data-value="vi"><span class="fi fi-vn" style="border-radius: 2px; margin-right: 8px;"></span> Tiếng Việt</li>
+        <li data-value="tr"><span class="fi fi-tr" style="border-radius: 2px; margin-right: 8px;"></span> Türkçe</li>
+        <li data-value="ko"><span class="fi fi-kr" style="border-radius: 2px; margin-right: 8px;"></span> 한국어</li>
       </ul>
     </div>
 
@@ -112,7 +118,7 @@
       <article class="timeline-card credits-card" id="card-credits">
         <h2 class="jesus-title" style="margin-bottom: 2rem;">Jesus, I Trust in You</h2>
         <div class="card-description" style="font-size: 1.1rem; font-family: var(--font-body); font-style: normal; font-weight: 500;">
-          <p>hi, i'm Ignacy, a Catholic from Cracow based in Warsaw, Poland, focused on developing my faith and sharing love to Jesus. check out my other projects at <a href="https://www.idiotajezusa.pl" target="_blank" style="color: var(--accent-blue);">idiotajezusa.pl</a>.</p>
+          <p>hi, i'm Ignacy, a Catholic from Cracow based in Warsaw, Poland, focused on developing my faith and sharing love to Jesus. check out my other projects: <a href="https://www.idiotajezusa.pl" target="_blank" style="color: var(--accent-blue);">idiotajezusa.pl</a>, <a href="https://www.stellamaris.help/" target="_blank" style="color: var(--accent-blue);">Stella Maris</a>, <a href="https://www.eucharisticmiracles.info/" target="_blank" style="color: var(--accent-blue);">Eucharistic Miracles info</a>.</p>
           <p style="margin-top: 1rem;">this project was developed using Vite, Leaflet.js, CARTO, and OpenStreetMap.</p>
           <p style="margin-top: 1rem;"><em>obrigado to Carlos Toledo for the inspiring work.</em></p>
         </div>
@@ -122,7 +128,7 @@
       <div class="timeline-footer-spacer"></div>
     </main>
     
-    <script src="./translations.js"></script>
+    <script src="./translations.js" charset="utf-8"></script>
     <script type="module" src="./main.js"></script>
   </body>
 </html>

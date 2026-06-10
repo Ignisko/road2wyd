@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     keepBuffer: 30
   }).addTo(map);
 
-  // Change default Leaflet attribution prefix to support WYD Seoul 2027
-  map.attributionControl.setPrefix('<a href="https://wydseoul.org" target="_blank" style="font-weight:bold; color:var(--accent-blue);">🇰🇷 Support WYD Seoul 2027</a>');
+  // Initial Leaflet attribution prefix
+  map.attributionControl.setPrefix('<a href="https://sdmpolska.pl/wesprzyj-nas" target="_blank" style="font-weight:bold; color:var(--accent-blue);"><span class="fi fi-pl" style="border-radius:2px;"></span> Support Polish volunteers in Seoul</a>');
 
 
 
@@ -37,27 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
   placeList.appendChild(homeLi);
 
   wydData.forEach((data, index) => {
-    // Offset Rome slightly so it doesn't overlap Vatican City at zoom level 4
-    if (data.id === "1985" || data.id === "2000") {
-      data.coordinates = [41.9, 13.5]; 
-    }
+    // Removed Rome offset so it shares the same coordinates as Vatican City
     
     latlngs.push(data.coordinates);
-
-    const flagMap = {
-      "1984": "🇻🇦", "1985": "🇮🇹", "1987": "🇦🇷", "1989": "🇪🇸",
-      "1991": "🇵🇱", "1993": "🇺🇸", "1995": "🇵🇭", "1997": "🇫🇷",
-      "2000": "🇮🇹", "2002": "🇨🇦", "2005": "🇩🇪", "2008": "🇦🇺",
-      "2011": "🇪🇸", "2013": "🇧🇷", "2016": "🇵🇱", "2019": "🇵🇦",
-      "2023": "🇵🇹", "2027": "🇰🇷"
-    };
 
     // Strip country to save space, and explicitly shorten long names
     let navLabel = data.location.split(',')[0];
     if (navLabel === "Santiago de Compostela") navLabel = "Santiago";
     if (navLabel === "Vatican City") navLabel = "Vatican";
-    
-    let displayLabel = `${flagMap[data.id] || ""} ${navLabel}`.trim();
 
     let labelClass = "city-label";
     if (navLabel === "Vatican") labelClass += " label-left";
@@ -66,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
       className: `custom-map-marker marker-${data.id}`,
       html: `
         <div class="marker-dot"></div>
-        <div class="${labelClass}">${displayLabel}</div>
+        <div class="${labelClass}">${navLabel}</div>
       `,
       iconSize: [24, 24],
       iconAnchor: [12, 12]
@@ -75,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const marker = L.marker(data.coordinates, { icon: specificIcon }).addTo(map);
 
     const li = document.createElement('li');
-    li.innerHTML = `<a href="#card-${data.id}" data-id="${data.id}">${displayLabel}</a>`;
+    li.innerHTML = `<a href="#card-${data.id}" data-id="${data.id}">${navLabel}</a>`;
     placeList.appendChild(li);
 
     // Skip index 0 because 1984 is baked in the HTML for SEO
@@ -262,8 +249,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. Language Application
   function applyLanguage(lang) {
     currentLang = lang;
+    const t = window.translations[lang] || window.translations['en'];
+
+    // Update map attribution with translated text
+    if (t.supportLinkText) {
+      map.attributionControl.setPrefix(`<a href="https://sdmpolska.pl/wesprzyj-nas" target="_blank" style="font-weight:bold; color:var(--accent-blue);"><span class="fi fi-pl" style="border-radius:2px;"></span> ${t.supportLinkText}</a>`);
+    }
+
+    const tFallback = window.translations['en'];
     wydData = window.wydDataByLang[lang];
-    const t = window.translations[lang];
 
     // Static text
     document.querySelector('.intro-kicker').innerHTML = t.introKicker;
@@ -336,24 +330,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const navLink = document.querySelector(`#place-list a[data-id="${data.id}"]`);
       if (navLink) {
-        const flagMap = {
-          "1984": "🇻🇦", "1985": "🇮🇹", "1987": "🇦🇷", "1989": "🇪🇸",
-          "1991": "🇵🇱", "1993": "🇺🇸", "1995": "🇵🇭", "1997": "🇫🇷",
-          "2000": "🇮🇹", "2002": "🇨🇦", "2005": "🇩🇪", "2008": "🇦🇺",
-          "2011": "🇪🇸", "2013": "🇧🇷", "2016": "🇵🇱", "2019": "🇵🇦",
-          "2023": "🇵🇹", "2027": "🇰🇷"
-        };
         let navLabel = data.location.split(',')[0];
         if (navLabel === "Santiago de Compostela") navLabel = "Santiago";
         if (navLabel === "Vatican City" || navLabel === "Watykan" || navLabel === "바티칸 시국" || navLabel === "Ciudad del Vaticano" || navLabel === "Città del Vaticano" || navLabel === "Cidade do Vaticano") navLabel = "Vatican";
         
-        let displayLabel = `${flagMap[data.id] || ""} ${navLabel}`.trim();
-        navLink.innerHTML = displayLabel;
+        navLink.innerHTML = navLabel;
         
         const markerEl = document.querySelector(`[class~="marker-${data.id}"]`);
         if (markerEl) {
           const cityLabel = markerEl.querySelector('.city-label');
-          if (cityLabel) cityLabel.innerHTML = displayLabel;
+          if (cityLabel) cityLabel.innerHTML = navLabel;
         }
       }
     });
@@ -382,8 +368,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const selectedLang = e.target.getAttribute('data-value');
         const selectedText = e.target.innerText;
         
+        // Extract just the flag HTML element for the top button
+        const flagSpan = e.target.querySelector('.fi');
+        const flagHtml = flagSpan ? flagSpan.outerHTML : '';
         // Update UI
-        langCurrent.innerHTML = `${selectedText} <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
+        langCurrent.innerHTML = `${flagHtml} <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
         langDropdown.querySelectorAll('li').forEach(li => li.classList.remove('active'));
         e.target.classList.add('active');
         customLang.classList.remove('open');
@@ -392,11 +381,20 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Close on click outside
+    // Close when clicking outside
     document.addEventListener('click', (e) => {
       if (!customLang.contains(e.target)) {
         customLang.classList.remove('open');
       }
+    });
+
+    // Close when scrolling or panning map
+    window.addEventListener('scroll', () => {
+      customLang.classList.remove('open');
+    }, { passive: true });
+
+    map.on('movestart', () => {
+      customLang.classList.remove('open');
     });
   }
 
