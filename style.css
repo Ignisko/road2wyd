@@ -64,11 +64,14 @@ h1, h2, h3, h4, h5, h6 {
 .marker-dot {
   width: 18px;
   height: 18px;
-  background-color: var(--accent-gold);
-  border: 3px solid transparent;
+  background: radial-gradient(circle at 35% 35%, #eb4e5a, var(--accent-gold));
+  border: 2px solid rgba(255, 255, 255, 0.7);
   border-radius: 50% !important;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
-  transition: transform 0.6s ease, background-color 0.8s ease, box-shadow 0.8s ease;
+  box-shadow: 
+    0 4px 8px rgba(0,0,0,0.3),
+    inset -2px -2px 4px rgba(0,0,0,0.25),
+    inset 2px 2px 3px rgba(255,255,255,0.2) !important;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.6s ease;
 }
 
 .custom-map-marker.active-pin {
@@ -77,8 +80,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .custom-map-marker.active-pin .marker-dot {
   transform: scale(1.6);
-  background-color: var(--accent-blue);
-  box-shadow: 0 0 20px rgba(27, 67, 170, 0.6) !important;
+  background: radial-gradient(circle at 35% 35%, #2a5ddb, var(--accent-blue));
+  box-shadow: 
+    0 6px 15px rgba(27, 67, 170, 0.5),
+    inset -2px -2px 5px rgba(0,0,0,0.3),
+    inset 2px 2px 3px rgba(255,255,255,0.25) !important;
   z-index: 1000;
 }
 
@@ -255,6 +261,26 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--accent-blue);
   font-weight: 700;
   font-family: 'Space Grotesk', sans-serif;
+}
+
+.card-logo {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.card-logo img {
+  max-height: 100px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.timeline-card.active .card-logo img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.25));
 }
 
 .timeline-card h2 {
