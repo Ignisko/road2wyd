@@ -23,7 +23,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initial Leaflet attribution prefix
   map.attributionControl.setPrefix('<a href="https://sdmpolska.pl/wesprzyj-nas" target="_blank" style="font-weight:bold; color:var(--accent-blue);"><span class="fi fi-pl" style="border-radius:2px;"></span> Support Polish volunteers in Seoul</a>');
 
+  // Fade out markers during map movement to prevent jitter/shaking
+  map.on('movestart', () => {
+    const pane = document.querySelector('.leaflet-marker-pane');
+    if (pane) {
+      pane.style.transition = 'none';
+      pane.style.opacity = '0';
+    }
+  });
 
+  map.on('moveend', () => {
+    const pane = document.querySelector('.leaflet-marker-pane');
+    if (pane) {
+      setTimeout(() => {
+        pane.style.transition = 'opacity 0.6s ease';
+        pane.style.opacity = '1';
+      }, 50);
+    }
+  });
 
   const timelineContainer = document.getElementById('dynamic-timeline');
   const placeList = document.getElementById('place-list');
@@ -171,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
               currentTargetCoords = data.coordinates;
               map.flyTo(data.coordinates, 8, {
                 animate: true,
-                duration: 5.0
+                duration: 2.0
               });
             }
           }
@@ -183,9 +200,9 @@ document.addEventListener('DOMContentLoaded', () => {
              navLinks.forEach(link => link.classList.remove('active'));
              
              // Fly to Warsaw
-             map.flyTo([52.2297, 21.0122], 8, {
+             map.flyTo([52.2297, 21.0122], 6, {
                animate: true,
-               duration: 5.0
+               duration: 2.0
              });
            }
         } else if (entry.target.id === 'card-symbols') {
@@ -239,13 +256,33 @@ document.addEventListener('DOMContentLoaded', () => {
            // Fly back to original view
            map.flyTo([41.9029, 12.4534], 4, {
              animate: true,
-             duration: 5.0
+             duration: 2.0
            });
         }
       });
-    }, { rootMargin: '-10% 0px -10% 0px' });
+    }, { threshold: 0.8 });
     introObserver.observe(introScreen);
   }
+
+  // Force Home view when scrolling back to the very top
+  window.addEventListener('scroll', () => {
+    if (window.scrollY < 50 && currentActiveId !== 'home') {
+       currentActiveId = 'home';
+       cards.forEach(c => c.classList.remove('active'));
+       document.querySelectorAll('.custom-map-marker').forEach(el => el.classList.remove('active-pin'));
+       if (introScreen) introScreen.style.opacity = '1';
+       if (mapEl) mapEl.classList.add('hide-markers');
+       navLinks.forEach(link => {
+         if (link.getAttribute('data-id') === 'home') {
+           link.classList.add('active');
+         } else {
+           link.classList.remove('active');
+         }
+       });
+       currentTargetCoords = null;
+       map.flyTo([41.9029, 12.4534], 4, { animate: true, duration: 2.0 });
+    }
+  });
   // 6. Language Application
   function applyLanguage(lang) {
     currentLang = lang;
@@ -285,14 +322,15 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#card-patrons h2').innerHTML = t.patronsTitle;
     const patronsDesc = document.querySelector('#card-patrons .card-description');
     if(patronsDesc) {
+       const wrapL = (html, url) => html.replace('<strong>', `<a href="${url}" target="_blank" style="color: var(--accent-blue); text-decoration: none;"><strong>`).replace('</strong>', '</strong></a>');
        patronsDesc.innerHTML = `
           <p style="margin-bottom: 0.5rem;">${t.patronsDesc}</p>
           <ul style="list-style: disc; margin-left: 1.5rem; margin-bottom: 1rem;">
-            <li>${t.patron1}</li>
-            <li>${t.patron2}</li>
-            <li>${t.patron3}</li>
-            <li>${t.patron4}</li>
-            <li>${t.patron5}</li>
+            <li>${wrapL(t.patron1, 'https://wydseoul.org/en/introduction/johnpaulII')}</li>
+            <li>${wrapL(t.patron2, 'https://wydseoul.org/en/introduction/kimtaegon')}</li>
+            <li>${wrapL(t.patron3, 'https://wydseoul.org/en/introduction/cabrini')}</li>
+            <li>${wrapL(t.patron4, 'https://wydseoul.org/en/introduction/bakhita')}</li>
+            <li>${wrapL(t.patron5, 'https://wydseoul.org/en/introduction/carloacutis')}</li>
           </ul>
           <p>${t.patronsQuote}</p>
        `;
@@ -317,6 +355,9 @@ document.addEventListener('DOMContentLoaded', () => {
              attendanceHTML = `<p>${attendanceText}${t.pilgrimsLabel}</p>`;
           }
           article.innerHTML = `
+            <div class="card-logo" style="margin-bottom: 1rem;">
+               <img src="./logos/${data.id}.png" alt="WYD ${data.year} Logo" style="max-height: 80px; width: auto; display: block;" onerror="this.style.display='none';">
+            </div>
             ${titleHTML}
             <div class="card-details">
               <p>${data.date}</p>

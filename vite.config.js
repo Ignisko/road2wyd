@@ -1,3 +1,3 @@
 export default {
-  base: '/map/',
+  base: '/road2wyd/',
 }
