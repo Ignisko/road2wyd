@@ -3,7 +3,7 @@ window.translations = {
     navHome: "Home",
     navSymbols: "Symbols",
     navPatrons: "Patron saints",
-    introKicker: "Saint John Paul II and",
+    introKicker: "Leo XIV and",
     introTitle: "World Youth Day",
     introSubtitle: "A Road to Seoul",
     introDesc: "Initiated by Pope John Paul II in 1985, World Youth Day (WYD) brings together millions of young people from around the globe to celebrate their faith. Scroll down to follow the journey across decades and continents.",
