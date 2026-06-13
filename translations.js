@@ -3,7 +3,7 @@ window.translations = {
     navHome: "Home",
     navSymbols: "Symbols",
     navPatrons: "Patron saints",
-    introKicker: "Leo XIV and",
+    introKicker: "Pope Leo XIV and",
     introTitle: "World Youth Day",
     introSubtitle: "A Road to Seoul",
     introDesc: "Initiated by Pope John Paul II in 1985, World Youth Day (WYD) brings together millions of young people from around the globe to celebrate their faith. Scroll down to follow the journey across decades and continents.",
@@ -30,7 +30,8 @@ window.translations = {
     creditsThanks: "<em>obrigado to Carlos Toledo for the inspiring work.</em>",
     pilgrimsLabel: " pilgrims",
     upcomingLabel: "Upcoming",
-    supportLinkText: "Support Polish volunteers in Seoul"
+    supportLinkText: "Support Polish volunteers in Seoul",
+    kofiButtonText: "Support my Catholic projects"
   },
   pl: {
     navHome: "Start",
@@ -63,7 +64,8 @@ window.translations = {
     creditsThanks: "<em>obrigado dla Carlosa Toledo za inspirującą pracę.</em>",
     pilgrimsLabel: " pielgrzymów",
     upcomingLabel: "Nadchodzące",
-    supportLinkText: "Wesprzyj polskich wolontariuszy w Seulu"
+    supportLinkText: "Wesprzyj polskich wolontariuszy w Seulu",
+    kofiButtonText: "Wesprzyj moje katolickie projekty"
   },
   ko: {
     navHome: "홈",
@@ -96,7 +98,8 @@ window.translations = {
     creditsThanks: "<em>영감을 준 Carlos Toledo에게 obrigado.</em>",
     pilgrimsLabel: "명 순례자",
     upcomingLabel: "예정됨",
-    supportLinkText: "WYD 후원하기"
+    supportLinkText: "WYD 후원하기",
+    kofiButtonText: "가톨릭 프로젝트 후원하기"
   },
   es: {
     navHome: "Inicio",
@@ -129,7 +132,8 @@ window.translations = {
     creditsThanks: "<em>obrigado a Carlos Toledo por su trabajo inspirador.</em>",
     pilgrimsLabel: " peregrinos",
     upcomingLabel: "Próximamente",
-    supportLinkText: "Apoya a la JMJ"
+    supportLinkText: "Apoya a la JMJ",
+    kofiButtonText: "Apoya mis proyectos católicos"
   },
   it: {
     navHome: "Home",
@@ -162,7 +166,8 @@ window.translations = {
     creditsThanks: "<em>obrigado a Carlos Toledo per il lavoro stimolante.</em>",
     pilgrimsLabel: " pellegrini",
     upcomingLabel: "Prossimamente",
-    supportLinkText: "Sostieni la GMG"
+    supportLinkText: "Sostieni la GMG",
+    kofiButtonText: "Sostieni i miei progetti cattolici"
   },
   pt: {
     navHome: "Início",
@@ -195,7 +200,8 @@ window.translations = {
     creditsThanks: "<em>obrigado a Carlos Toledo pelo trabalho inspirador.</em>",
     pilgrimsLabel: " peregrinos",
     upcomingLabel: "Em breve",
-    supportLinkText: "Apoie a JMJ"
+    supportLinkText: "Apoie a JMJ",
+    kofiButtonText: "Apoie meus projetos católicos"
   }
 };
 
