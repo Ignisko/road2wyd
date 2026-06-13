@@ -388,9 +388,9 @@ document.addEventListener('DOMContentLoaded', () => {
           <p>${t.creditsBio}</p>
           <p style="margin-top: 1rem;">${t.creditsTech}</p>
           <p style="margin-top: 1rem;">${t.creditsThanks}</p>
-          <div style="margin-top: 1.5rem; text-align: center;">
-            <a href="https://ko-fi.com/afoolforjesus" target="_blank" class="kofi-button">
-              <span style="margin-right: 8px;">☕</span>${t.kofiButtonText || 'Support my projects'}
+          <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end;">
+            <a href="https://ko-fi.com/afoolforjesus" target="_blank" class="kofi-button kofi-large-btn">
+              <span style="margin-right: 8px;">☕</span>${t.supportMyWorkText || 'Support my work'}
             </a>
           </div>
     `;
@@ -443,6 +443,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if(navSym) navSym.innerHTML = t.navSymbols;
     const navPat = document.querySelector('#place-list a[data-id="patrons"]');
     if(navPat) navPat.innerHTML = t.navPatrons;
+    const floatCredits = document.getElementById('bottom-floating-credits');
+    if(floatCredits) floatCredits.innerHTML = t.navCredits;
   }
 
   const customLang = document.getElementById('custom-lang');
