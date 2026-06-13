@@ -539,10 +539,49 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (max-width: 1024px) {
   #bottom-left-credits {
-    bottom: 20px;
+    bottom: 30px;
     left: 20px;
-    padding: 4px 10px;
-    font-size: 0.75rem;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .intro-kicker {
+    font-size: 1.5rem;
+  }
+  .intro-title {
+    font-size: 2.8rem;
+  }
+  .intro-subtitle {
+    font-size: 1.8rem;
+  }
+  .intro-description {
+    font-size: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .timeline-card h2, .jesus-title {
+    font-size: 2rem !important;
+  }
+  
+  .card-description {
+    font-size: 1.05rem;
+  }
+  
+  .kofi-button {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .custom-lang-selector {
+    top: 20px;
+    left: 20px;
+  }
+  
+  .lang-current {
+    padding: 6px 14px;
+    font-size: 0.85rem;
   }
 }
 
