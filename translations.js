@@ -32,6 +32,7 @@ window.translations = {
     pilgrimsLabel: " pilgrims",
     upcomingLabel: "Upcoming",
     supportLinkText: "Support Polish volunteers in Seoul",
+    supportMyWorkText: "Support my work",
     kofiButtonText: "Support my Catholic projects"
   },
   pl: {
@@ -67,6 +68,7 @@ window.translations = {
     pilgrimsLabel: " pielgrzymów",
     upcomingLabel: "Nadchodzące",
     supportLinkText: "Wesprzyj polskich wolontariuszy w Seulu",
+    supportMyWorkText: "Wesprzyj moją pracę",
     kofiButtonText: "Wesprzyj moje katolickie projekty"
   },
   ko: {
@@ -102,6 +104,7 @@ window.translations = {
     pilgrimsLabel: "명 순례자",
     upcomingLabel: "예정됨",
     supportLinkText: "WYD 후원하기",
+    supportMyWorkText: "내 작업 후원하기",
     kofiButtonText: "가톨릭 프로젝트 후원하기"
   },
   es: {
@@ -137,6 +140,7 @@ window.translations = {
     pilgrimsLabel: " peregrinos",
     upcomingLabel: "Próximamente",
     supportLinkText: "Apoya a la JMJ",
+    supportMyWorkText: "Apoya mi trabajo",
     kofiButtonText: "Apoya mis proyectos católicos"
   },
   it: {
@@ -172,6 +176,7 @@ window.translations = {
     pilgrimsLabel: " pellegrini",
     upcomingLabel: "Prossimamente",
     supportLinkText: "Sostieni la GMG",
+    supportMyWorkText: "Sostieni il mio lavoro",
     kofiButtonText: "Sostieni i miei progetti cattolici"
   },
   pt: {
@@ -207,6 +212,7 @@ window.translations = {
     pilgrimsLabel: " peregrinos",
     upcomingLabel: "Em breve",
     supportLinkText: "Apoie a JMJ",
+    supportMyWorkText: "Apoie meu trabalho",
     kofiButtonText: "Apoie meus projetos católicos"
   }
 };

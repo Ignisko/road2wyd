@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }).addTo(map);
 
   // Initial Leaflet attribution prefix
-  map.attributionControl.setPrefix('<a href="https://sdmpolska.pl/wesprzyj-nas" target="_blank" style="font-weight:bold; color:var(--accent-blue);"><span class="fi fi-pl" style="border-radius:2px;"></span> Support Polish volunteers in Seoul</a>');
+  map.attributionControl.setPrefix('<a href="https://sdmpolska.pl/wesprzyj-nas" target="_blank" style="font-weight:bold; color:var(--accent-blue);"><span class="fi fi-pl" style="border-radius:2px;"></span> Support Polish volunteers in Seoul</a> | <a href="https://ko-fi.com/afoolforjesus" target="_blank" style="font-weight:bold; color:var(--accent-blue);">☕ Support my work</a>');
 
   // Fade out markers during map movement to prevent jitter/shaking
   map.on('movestart', () => {
@@ -311,7 +311,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update map attribution with translated text
     if (t.supportLinkText) {
-      map.attributionControl.setPrefix(`<a href="https://sdmpolska.pl/wesprzyj-nas" target="_blank" style="font-weight:bold; color:var(--accent-blue);"><span class="fi fi-pl" style="border-radius:2px;"></span> ${t.supportLinkText}</a>`);
+      const supportMyWork = t.supportMyWorkText || "Support my work";
+      map.attributionControl.setPrefix(`<a href="https://sdmpolska.pl/wesprzyj-nas" target="_blank" style="font-weight:bold; color:var(--accent-blue);"><span class="fi fi-pl" style="border-radius:2px;"></span> ${t.supportLinkText}</a> | <a href="https://ko-fi.com/afoolforjesus" target="_blank" style="font-weight:bold; color:var(--accent-blue);">☕ ${supportMyWork}</a>`);
     }
 
     const tFallback = window.translations['en'];
@@ -322,6 +323,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.intro-title').innerHTML = t.introTitle;
     document.querySelector('.intro-subtitle').innerHTML = t.introSubtitle;
     document.querySelector('.intro-description p').innerHTML = t.introDesc;
+
+    const bottomCredits = document.getElementById('bottom-left-credits');
+    if(bottomCredits) bottomCredits.innerHTML = t.navCredits || "Credits";
 
     document.querySelector('#card-1984 h2').innerHTML = t.card1984Title;
     const card1984Details = document.querySelectorAll('#card-1984 .card-details p');
