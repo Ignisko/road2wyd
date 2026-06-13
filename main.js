@@ -121,6 +121,11 @@ document.addEventListener('DOMContentLoaded', () => {
   patronsLi.innerHTML = `<a href="#card-patrons" data-id="patrons">Patron saints</a>`;
   placeList.appendChild(patronsLi);
 
+  // Add Credits to Nav List
+  const creditsLi = document.createElement('li');
+  creditsLi.innerHTML = `<a href="#card-credits" data-id="credits">Credits</a>`;
+  placeList.appendChild(creditsLi);
+
   // Handle Navbar Clicks smoothly
   placeList.addEventListener('click', (e) => {
     const link = e.target.closest('a');
@@ -194,18 +199,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           }
         } else if (isCredits) {
-           currentActiveId = 'credits';
-           
-           if (!currentTargetCoords || currentTargetCoords[0] !== 52.2297 || currentTargetCoords[1] !== 21.0122) {
-             currentTargetCoords = [52.2297, 21.0122];
-             navLinks.forEach(link => link.classList.remove('active'));
-             
-             // Fly to Warsaw
-             map.flyTo([52.2297, 21.0122], 6, {
-               animate: true,
-               duration: 2.0
-             });
-           }
+            currentActiveId = 'credits';
+            
+            if (!currentTargetCoords || currentTargetCoords[0] !== 52.2297 || currentTargetCoords[1] !== 21.0122) {
+              currentTargetCoords = [52.2297, 21.0122];
+              
+              // Fly to Warsaw
+              map.flyTo([52.2297, 21.0122], 6, {
+                animate: true,
+                duration: 2.0
+              });
+            }
+            navLinks.forEach(link => {
+              if (link.getAttribute('data-id') === 'credits') {
+                link.classList.add('active');
+                link.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              } else {
+                link.classList.remove('active');
+              }
+            });
         } else if (entry.target.id === 'card-symbols') {
              currentActiveId = 'symbols';
              if (!currentTargetCoords || currentTargetCoords[0] !== 37.5665 || currentTargetCoords[1] !== 126.978) {
@@ -349,6 +361,11 @@ document.addEventListener('DOMContentLoaded', () => {
           <p>${t.creditsBio}</p>
           <p style="margin-top: 1rem;">${t.creditsTech}</p>
           <p style="margin-top: 1rem;">${t.creditsThanks}</p>
+          <div style="margin-top: 1.5rem; text-align: center;">
+            <a href="https://ko-fi.com/afoolforjesus" target="_blank" class="kofi-button">
+              <span style="margin-right: 8px;">☕</span>${t.kofiButtonText || 'Support my projects'}
+            </a>
+          </div>
     `;
 
     // Dynamic cards & Nav links
@@ -399,6 +416,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if(navSym) navSym.innerHTML = t.navSymbols;
     const navPat = document.querySelector('#place-list a[data-id="patrons"]');
     if(navPat) navPat.innerHTML = t.navPatrons;
+    const navCred = document.querySelector('#place-list a[data-id="credits"]');
+    if(navCred) navCred.innerHTML = t.navCredits || "Credits";
   }
 
   const customLang = document.getElementById('custom-lang');
