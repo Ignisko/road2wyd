@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const bottomCreditsBtn = document.getElementById('bottom-left-credits');
+  const bottomCreditsBtn = document.getElementById('bottom-floating-credits');
   if (bottomCreditsBtn) {
     bottomCreditsBtn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -169,8 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
         cards.forEach(c => c.classList.remove('active'));
         entry.target.classList.add('active');
 
-        // Hide bottom-left credits button when credits card is active, show otherwise
-        const bottomCredits = document.getElementById('bottom-left-credits');
+        // Hide bottom-floating credits button when credits card is active, show otherwise
+        const bottomCredits = document.getElementById('bottom-floating-credits');
         if (bottomCredits) {
           if (entry.target.id === 'card-credits') {
             bottomCredits.style.opacity = '0';
