@@ -1,8 +1,7 @@
 {
-  "framework": null,
-  "buildCommand": "echo \"Ready\"",
-  "installCommand": "echo \"Ready\"",
-  "outputDirectory": ".",
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "trailingSlash": true,
   "cleanUrls": true
 }
