@@ -140,7 +140,12 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const targetEl = document.getElementById('card-credits');
       if (targetEl) {
-        targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const titleEl = targetEl.querySelector('.jesus-title');
+        if (titleEl) {
+          titleEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
       }
     });
   }

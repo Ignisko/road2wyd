@@ -33,7 +33,7 @@ window.translations = {
     upcomingLabel: "Upcoming",
     supportLinkText: "Support Polish volunteers in Seoul",
     supportMyWorkText: "Support my work",
-    kofiButtonText: "Support my Catholic projects"
+    kofiButtonText: "Support my projects"
   },
   pl: {
     navHome: "Start",
@@ -69,7 +69,7 @@ window.translations = {
     upcomingLabel: "Nadchodzące",
     supportLinkText: "Wesprzyj polskich wolontariuszy w Seulu",
     supportMyWorkText: "Wesprzyj moją pracę",
-    kofiButtonText: "Wesprzyj moje katolickie projekty"
+    kofiButtonText: "Wesprzyj moje projekty"
   },
   ko: {
     navHome: "홈",
@@ -105,7 +105,7 @@ window.translations = {
     upcomingLabel: "예정됨",
     supportLinkText: "WYD 후원하기",
     supportMyWorkText: "내 작업 후원하기",
-    kofiButtonText: "가톨릭 프로젝트 후원하기"
+    kofiButtonText: "프로젝트 후원하기"
   },
   es: {
     navHome: "Inicio",
@@ -141,7 +141,7 @@ window.translations = {
     upcomingLabel: "Próximamente",
     supportLinkText: "Apoya a la JMJ",
     supportMyWorkText: "Apoya mi trabajo",
-    kofiButtonText: "Apoya mis proyectos católicos"
+    kofiButtonText: "Apoya mis proyectos"
   },
   it: {
     navHome: "Home",
@@ -177,7 +177,7 @@ window.translations = {
     upcomingLabel: "Prossimamente",
     supportLinkText: "Sostieni la GMG",
     supportMyWorkText: "Sostieni il mio lavoro",
-    kofiButtonText: "Sostieni i miei progetti cattolici"
+    kofiButtonText: "Sostieni i miei progetti"
   },
   pt: {
     navHome: "Início",
@@ -213,7 +213,7 @@ window.translations = {
     upcomingLabel: "Em breve",
     supportLinkText: "Apoie a JMJ",
     supportMyWorkText: "Apoie meu trabalho",
-    kofiButtonText: "Apoie meus projetos católicos"
+    kofiButtonText: "Apoie meus projetos"
   }
 };
 
