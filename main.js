@@ -1,3 +1,4 @@
+import './translations.js';
 let currentLang = 'en';
 let wydData = window.wydDataByLang[currentLang];
 
