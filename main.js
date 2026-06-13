@@ -121,11 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
   patronsLi.innerHTML = `<a href="#card-patrons" data-id="patrons">Patron saints</a>`;
   placeList.appendChild(patronsLi);
 
-  // Add Credits to Nav List
-  const creditsLi = document.createElement('li');
-  creditsLi.innerHTML = `<a href="#card-credits" data-id="credits">Credits</a>`;
-  placeList.appendChild(creditsLi);
-
   // Handle Navbar Clicks smoothly
   placeList.addEventListener('click', (e) => {
     const link = e.target.closest('a');
@@ -138,6 +133,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
+  const bottomCreditsBtn = document.getElementById('bottom-left-credits');
+  if (bottomCreditsBtn) {
+    bottomCreditsBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetEl = document.getElementById('card-credits');
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  }
 
   // 4. Scroll Logic with IntersectionObserver
   const cards = document.querySelectorAll('.timeline-card');
@@ -420,8 +426,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if(navSym) navSym.innerHTML = t.navSymbols;
     const navPat = document.querySelector('#place-list a[data-id="patrons"]');
     if(navPat) navPat.innerHTML = t.navPatrons;
-    const navCred = document.querySelector('#place-list a[data-id="credits"]');
-    if(navCred) navCred.innerHTML = t.navCredits || "Credits";
   }
 
   const customLang = document.getElementById('custom-lang');
