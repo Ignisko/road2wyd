@@ -357,7 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
           article.innerHTML = `
              <div class="card-logo">
-                 <img src="./logos/${data.id}.png" alt="WYD ${data.year} Logo" onerror="this.style.display='none';" ${data.id === '1985' ? 'style="border-radius: 50%; aspect-ratio: 1/1; object-fit: cover; background: white;"' : ''}>
+                 <img src="./logos/${data.id}.png" alt="WYD ${data.year} Logo" onerror="this.style.display='none';" ${data.id === '1985' ? 'style="border-radius: 50%; aspect-ratio: 1/1; object-fit: contain; background: white; padding: 12px; box-sizing: border-box;"' : ''}>
               </div>
             ${titleHTML}
             <div class="card-details">
