@@ -164,6 +164,18 @@ document.addEventListener('DOMContentLoaded', () => {
         cards.forEach(c => c.classList.remove('active'));
         entry.target.classList.add('active');
 
+        // Hide bottom-left credits button when credits card is active, show otherwise
+        const bottomCredits = document.getElementById('bottom-left-credits');
+        if (bottomCredits) {
+          if (entry.target.id === 'card-credits') {
+            bottomCredits.style.opacity = '0';
+            bottomCredits.style.pointerEvents = 'none';
+          } else {
+            bottomCredits.style.opacity = '1';
+            bottomCredits.style.pointerEvents = 'auto';
+          }
+        }
+
         // Fade out intro screen when scrolling down to cards
         if (introScreen && entry.target.id !== 'intro-screen') {
           introScreen.style.opacity = '0';
