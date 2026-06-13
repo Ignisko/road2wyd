@@ -431,6 +431,30 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 20px 50px rgba(0,0,0,0.3) !important;
 }
 
+/* Symbol Images Container */
+.symbol-img-container {
+  border-radius: 12px;
+  width: calc(50% - 5px);
+  height: 220px;
+  overflow: hidden;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
+}
+@media (max-width: 1440px) {
+  .symbol-img-container {
+    height: 180px;
+  }
+}
+@media (max-width: 1024px) {
+  .symbol-img-container {
+    height: 220px;
+  }
+}
+@media (max-width: 600px) {
+  .symbol-img-container {
+    height: 150px;
+  }
+}
+
 /* Credits Card */
 .credits-card {
   margin-top: 60vh;
