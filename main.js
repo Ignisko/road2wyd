@@ -356,9 +356,9 @@ document.addEventListener('DOMContentLoaded', () => {
              attendanceHTML = `<p>${attendanceText}${t.pilgrimsLabel}</p>`;
           }
           article.innerHTML = `
-            <div class="card-logo">
-               <img src="./logos/${data.id}.png" alt="WYD ${data.year} Logo" onerror="this.style.display='none';">
-            </div>
+             <div class="card-logo">
+                 <img src="./logos/${data.id}.png" alt="WYD ${data.year} Logo" onerror="this.style.display='none';" ${data.id === '1985' ? 'style="border-radius: 50%; aspect-ratio: 1/1; object-fit: cover; background: white;"' : ''}>
+              </div>
             ${titleHTML}
             <div class="card-details">
               <p>${data.date}</p>
