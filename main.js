@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const observerOptions = {
     root: null,
-    rootMargin: '-60% 0px -5% 0px',
+    rootMargin: '-40% 0px -10% 0px',
     threshold: 0
   };
 
@@ -207,28 +207,36 @@ document.addEventListener('DOMContentLoaded', () => {
              });
            }
         } else if (entry.target.id === 'card-symbols') {
-           currentActiveId = 'symbols';
-           navLinks.forEach(link => {
-             if (link.getAttribute('data-id') === 'symbols') {
-               link.classList.add('active');
-               link.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-             } else {
-               link.classList.remove('active');
+             currentActiveId = 'symbols';
+             if (!currentTargetCoords || currentTargetCoords[0] !== 37.5665 || currentTargetCoords[1] !== 126.978) {
+               currentTargetCoords = [37.5665, 126.978];
+               map.flyTo([37.5665, 126.978], 4, { animate: true, duration: 2.0 });
              }
-           });
+             navLinks.forEach(link => {
+               if (link.getAttribute('data-id') === 'symbols') {
+                 link.classList.add('active');
+                 link.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+               } else {
+                 link.classList.remove('active');
+               }
+             });
         } else if (entry.target.id === 'card-patrons') {
-           currentActiveId = 'patrons';
-           navLinks.forEach(link => {
-             if (link.getAttribute('data-id') === 'patrons') {
-               link.classList.add('active');
-               link.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-             } else {
-               link.classList.remove('active');
+             currentActiveId = 'patrons';
+             if (!currentTargetCoords || currentTargetCoords[0] !== 37.5665 || currentTargetCoords[1] !== 126.978) {
+               currentTargetCoords = [37.5665, 126.978];
+               map.flyTo([37.5665, 126.978], 4, { animate: true, duration: 2.0 });
              }
-           });
+             navLinks.forEach(link => {
+               if (link.getAttribute('data-id') === 'patrons') {
+                 link.classList.add('active');
+                 link.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+               } else {
+                 link.classList.remove('active');
+               }
+             });
+          }
         }
-      }
-    });
+      });
   }, observerOptions);
 
   cards.forEach(card => observer.observe(card));
@@ -312,13 +320,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     document.querySelector('#card-1984 .card-description').innerHTML = t.card1984Desc;
 
-    document.querySelector('#card-symbols h2').innerHTML = t.symbolsTitle;
-    const symbolsPs = document.querySelectorAll('#card-symbols .card-description p');
-    if(symbolsPs.length === 3) {
-      symbolsPs[0].innerHTML = t.symbolsP1;
-      symbolsPs[1].innerHTML = t.symbolsP2;
-      symbolsPs[2].innerHTML = t.symbolsP3;
-    }
+      document.querySelector('#card-symbols h2').innerHTML = t.symbolsTitle;
+      const symbolsPs = document.querySelectorAll('#card-symbols .card-description p');
+      if(symbolsPs.length >= 2) {
+        symbolsPs[0].innerHTML = t.symbolsP1;
+        symbolsPs[1].innerHTML = t.symbolsP2;
+      }
 
     document.querySelector('#card-patrons h2').innerHTML = t.patronsTitle;
     const patronsDesc = document.querySelector('#card-patrons .card-description');
