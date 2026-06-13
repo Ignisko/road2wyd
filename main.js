@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
              currentActiveId = 'symbols';
              if (!currentTargetCoords || currentTargetCoords[0] !== 37.5665 || currentTargetCoords[1] !== 126.978) {
                currentTargetCoords = [37.5665, 126.978];
-               map.flyTo([37.5665, 126.978], 4, { animate: true, duration: 2.0 });
+               map.flyTo([37.5665, 126.978], 8, { animate: true, duration: 2.0 });
              }
              navLinks.forEach(link => {
                if (link.getAttribute('data-id') === 'symbols') {
@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
              currentActiveId = 'patrons';
              if (!currentTargetCoords || currentTargetCoords[0] !== 37.5665 || currentTargetCoords[1] !== 126.978) {
                currentTargetCoords = [37.5665, 126.978];
-               map.flyTo([37.5665, 126.978], 4, { animate: true, duration: 2.0 });
+               map.flyTo([37.5665, 126.978], 8, { animate: true, duration: 2.0 });
              }
              navLinks.forEach(link => {
                if (link.getAttribute('data-id') === 'patrons') {
