@@ -469,19 +469,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
 }
-.credits-layout {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-}
-.credits-text {
-  flex: 1;
-}
-.credits-btn {
-  flex-shrink: 0;
-}
+
 
 /* Mobile Responsive */
 @media (max-width: 1024px) {
@@ -495,15 +483,7 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
   }
   
-  .credits-layout {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .credits-btn {
-    margin-top: 1.5rem;
-    align-self: flex-start;
-  }
+
 
   .intro-title {
     font-size: 3.5rem;

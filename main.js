@@ -385,18 +385,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('#card-credits .jesus-title').innerHTML = t.creditsTitle;
     document.querySelector('#card-credits .card-description').innerHTML = `
-        <div class="credits-layout">
-          <div class="credits-text">
-            <p>${t.creditsBio}</p>
-            <p style="margin-top: 1rem;">${t.creditsTech}</p>
-            <p style="margin-top: 1rem;">${t.creditsThanks}</p>
-          </div>
-          <div class="credits-btn">
-            <a href="https://ko-fi.com/afoolforjesus" target="_blank" class="kofi-button kofi-large-btn">
-              <span style="margin-right: 8px;">☕</span>${t.supportMyWorkText || 'Support my work'}
-            </a>
-          </div>
+        <div style="float: right; margin: 0.5rem 0 1rem 1.5rem;">
+          <a href="https://ko-fi.com/afoolforjesus" target="_blank" class="kofi-button kofi-large-btn">
+            <span style="margin-right: 8px;">☕</span>${t.supportMyWorkText || 'Support my work'}
+          </a>
         </div>
+        <p>${t.creditsBio}</p>
+        <p style="margin-top: 1rem;">${t.creditsTech}</p>
+        <p style="margin-top: 1rem;">${t.creditsThanks}</p>
+        <div style="clear: both;"></div>
     `;
 
     // Dynamic cards & Nav links
