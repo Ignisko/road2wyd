@@ -322,7 +322,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Symbols Card */
 .symbols-card {
-  margin-top: 80vh; 
+  margin-top: 120vh; 
 }
 .symbols-card p {
   margin-bottom: 1rem;
@@ -330,7 +330,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Patrons Card */
 .patrons-card {
-  margin-top: 80vh;
+  margin-top: 120vh;
 }
 
 /* Final Card */
@@ -352,10 +352,16 @@ h1, h2, h3, h4, h5, h6 {
 .custom-lang-selector {
   position: fixed;
   top: 30px;
-  left: 30px;
+  right: 140px;
   z-index: 1000;
   font-family: var(--font-body);
   user-select: none;
+}
+@media (max-width: 1024px) {
+  .custom-lang-selector {
+    right: 20px;
+    top: 20px;
+  }
 }
 .lang-current {
   background: rgba(255, 255, 255, 0.85);
@@ -388,7 +394,7 @@ h1, h2, h3, h4, h5, h6 {
 .lang-dropdown {
   position: absolute;
   top: calc(100% + 12px);
-  left: 0;
+  right: 0;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -403,7 +409,7 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px) scale(0.95);
-  transform-origin: top left;
+  transform-origin: top right;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .custom-lang-selector.open .lang-dropdown {
