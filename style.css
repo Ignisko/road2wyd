@@ -328,6 +328,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
 }
 
+/* Patrons Card */
+.patrons-card {
+  margin-top: 80vh;
+}
+
 /* Final Card */
 .final-card {
   margin-top: 60vh;
@@ -490,3 +495,33 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: 110px;
   }
 }
+
+/* Ko-fi Donation Button */
+.kofi-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-blue);
+  color: #ffffff !important;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  text-decoration: none !important;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 1rem;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 15px rgba(27, 67, 170, 0.2);
+  margin-top: 0.5rem;
+}
+
+.kofi-button:hover {
+  background-color: #12348a;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(27, 67, 170, 0.35);
+}
+
+.kofi-button:active {
+  transform: translateY(-1px) scale(1.0);
+  box-shadow: 0 4px 10px rgba(27, 67, 170, 0.2);
+}
+
